@@ -81,8 +81,8 @@ on etype fb = makeAff (\cb -> FBE.on etype (Right >>> cb) (convertError (Left >>
 -- convert firebase error to purescript Error in javascript
 -- see .js file for firebase Error documentation
 convertError :: (Error -> Effect Unit) ->
-	 FBT.FirebaseErr ->
-         Effect Unit
+      FBT.FirebaseErr ->
+      Effect Unit
 convertError errorCallback firebaseError = errorCallback (fb2error firebaseError)
 
 -- We also take the liberty to write more specific functions, e.g. once and on() in firebase have 4 event types. we get better error messages and code completion by making specific functions, e.g.
